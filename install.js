@@ -10,7 +10,6 @@ module.exports = {
        next: null
      },
      
-    // Edit this step to customize the git repository to use     
     {
       method: "shell.run",
       params: {
@@ -36,21 +35,20 @@ module.exports = {
       params: {
         uri: "torch.js",
         params: {
-          venv: "env",                // Edit this to customize the venv folder path
-          path: "app",                // Edit this to customize the path to start the shell from
+          venv: "env",               
+          path: "app",               
           // xformers: true   // uncomment this line if your project requires xformers
-          // triton: true,   // uncomment this line if your project requires triton
+          // triton: true,   // uncomment this line if your project requires triton.   triton-windows and SA require torch>=2.6.0 
           // sageattention: true   // uncomment this line if your project requires sageattention
         }
       }
     },
     
-    // Edit this step with your custom install commands
     {
       method: "shell.run",
       params: {
-        venv: "env",                // Edit this to customize the venv folder path
-        path: "app",                // Edit this to customize the path to start the shell from
+        venv: "env",              
+        path: "app",               
         message: [
           "uv pip install -r ../requirements.txt",  // "../" points up to the Pinokio script directory where (torched removed) requirements files are stored
           "uv pip install -r ../requirementsFP.txt"
