@@ -20,7 +20,7 @@ module.exports = {
       }
     },
     
-    // Overwrite existing H1111.py with server fix
+    // Overwrite existing H1111.py with server fix "demo.queue().launch(share=False)"
     {
       method: "fs.copy",
       params: {
@@ -29,7 +29,8 @@ module.exports = {
       }
     }, 
     
-    // Delete this step if your project does not use torch
+    // Will need to adjust torch.js and requirements to allow torch 2.6.0+ for SA and torch 2.7+ for 5000 series
+    // Only 3000 & 4000 series NVIDIA currently supported (torch 2.5.1)
     {
       method: "script.start",
       params: {
@@ -51,7 +52,7 @@ module.exports = {
         venv: "env",                // Edit this to customize the venv folder path
         path: "app",                // Edit this to customize the path to start the shell from
         message: [
-          "uv pip install -r ../requirements.txt",  // "../" points up to the Pinokio script directory where the custom requirements files are stored
+          "uv pip install -r ../requirements.txt",  // "../" points up to the Pinokio script directory where (torched removed) requirements files are stored
           "uv pip install -r ../requirementsFP.txt"
         ]
       }
