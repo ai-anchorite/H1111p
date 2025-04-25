@@ -51,7 +51,7 @@ module.exports = {
         path: "app",               
         message: [
           "uv pip install -r ../requirements.txt",  // "../" points up to the Pinokio script directory where (torched removed) requirements files are stored
-          "uv pip install -r ../requirementsFP.txt"
+          // "uv pip install -r ../requirementsFP.txt"
         ]
       }
     },
