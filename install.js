@@ -18,18 +18,7 @@ module.exports = {
         ]
       }
     },
-    
-    // Overwrite existing H1111.py with server fix "demo.queue().launch(share=False)"
-    {
-      method: "fs.copy",
-      params: {
-        src: "H1111.py",
-        dest: "app/H1111.py"
-      }
-    }, 
-    
-    // Will need to adjust torch.js and requirements to allow torch 2.6.0+ for SA and torch 2.7+ for 5000 series
-    // Only 3000 & 4000 series NVIDIA currently supported (torch 2.5.1)
+
     {
       method: "script.start",
       params: {
@@ -38,8 +27,8 @@ module.exports = {
           venv: "env",               
           path: "app",               
           // xformers: true   // uncomment this line if your project requires xformers
-          // triton: true,   // uncomment this line if your project requires triton.   triton-windows and SA require torch>=2.6.0 
-          // sageattention: true   // uncomment this line if your project requires sageattention
+          triton: true,   // uncomment this line if your project requires triton.  
+          sageattention: true   // uncomment this line if your project requires sageattention
         }
       }
     },
@@ -51,7 +40,7 @@ module.exports = {
         path: "app",               
         message: [
           "uv pip install -r ../requirements.txt",  // "../" points up to the Pinokio script directory where (torched removed) requirements files are stored
-          // "uv pip install -r ../requirementsFP.txt"
+          "uv pip install bitsandbytes",
         ]
       }
     },
