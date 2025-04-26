@@ -55,5 +55,15 @@ module.exports = {
         ]
       }
     },
+    
+    {
+      method: "hf.download",
+      params: {
+        path: "app",
+        "_": [ "maybleMyers/framepack_h1111" ],
+        "exclude": '".gitattributes" "Experimental*" "*.md"',
+        "local-dir": "hunyuan",
+      }
+    },
   ]
 }
